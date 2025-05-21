@@ -151,6 +151,14 @@
       }
     }
 
+    .completeBtn:hover {
+      background-color: #4CAF50;
+    }
+
+    .removeBtn:hover {
+      background-color: rgba(252, 4, 4, 0.867);
+    }
+
     .removeBtn,
     .completeBtn {
       width: 2rem;
@@ -190,15 +198,22 @@
       completeBtn.classList.add('completeBtn');
       completeBtn.innerHTML = '<i class="fa-solid fa-check"></i>'
 
+
+      // rgb(170, 250, 172) background after check completeBtn
+
+
       completeBtn.addEventListener('click', () => {
+        const ul = document.getElementById('taskList');
         if (span.dataset.completed === 'false') {
           span.style.textDecoration = 'line-through';
           span.dataset.completed = 'true';
           completeBtn.style.backgroundColor = '#4CAF50';
+          ul, li.style.backgroundColor = 'rgb(170, 250, 172)'
         } else {
           span.style.textDecoration = 'none';
           span.dataset.completed = 'false';
           completeBtn.style.backgroundColor = '';
+          ul, li.style.backgroundColor = '';  
         }
         updateLocalStorage();
       });
